@@ -3,6 +3,7 @@ React = require \react
 build = (dom)->
      (input) ->
          if typeof! input is \Object and input.$$typeof is "Symbol(react.element)"
+           console.log \synbol, input
            return dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
          if [\Object, \Undefined, \Null].index-of(typeof! input) > -1
            return ->
