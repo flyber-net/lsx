@@ -165,7 +165,7 @@ main = create do
 
     render: ->
         div do
-          for i in [1 to 2o]
+          for i in [1 to 5]
             div i
 
 ```
