@@ -16,7 +16,7 @@ main = create-class do
 window.onload = ->
     'app' |> document.createElement |> document.body.appendChild
     render do
-        main []
+        main()
         'app' |> document.querySelector
 ```
 
@@ -53,8 +53,8 @@ npm i lsx-pug
 Main = createClass do
     render : ->
         div() do
-            p [] 'hello'
-            a [] 'world'
+            p() 'hello'
+            a() 'world'
 ```
 
 3 render.
@@ -62,7 +62,7 @@ Main = createClass do
 ```Livescript
 { render } = require 'react-dom'
 render do
-    Main []
+    Main()
     'app' |> document.querySelector
 ```
 
