@@ -13,20 +13,20 @@ build = (tagname, dom)->
                 | typeof! arguments.0 is \Array => arguments.0
                 | _ => Array.prototype.slice.call(arguments)
               dom.apply(@, [input ? null] ++ items)
-           #obj.$$typeof = "Symbol(react.element)"
-           #obj._owner = null
-           #obj._self = null
-           #obj._source = null 
-           #obj._store = 
-           #   validated: no 
-           #obj.props = 
-           #   children: 0
-           #if typeof! input is \Object
-           #      obj.props <<< input
-           #obj.key = null
-           #obj.ref = null
-           #obj.type = tagname
-           obj   
+           obj.$$typeof = "Symbol(react.element)"
+           obj._owner = null
+           obj._self = null
+           obj._source = null 
+           obj._store = 
+              validated: no 
+           obj.props = 
+              children: 0
+           if typeof! input is \Object
+                 obj.props <<< input
+           obj.key = null
+           obj.ref = null
+           obj.type = tagname
+           return obj   
          dom.apply(@, [null] ++ items)
 
 create = (component) ->
