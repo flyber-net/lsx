@@ -1,15 +1,19 @@
 React = require \react
 
 build = (dom)->
-     (input) ->
-         #console.log \typeof, input?$$typeof
+     (input)->
+         items = 
+              | typeof! arguments.1 is \Array => arguments.1
+              | _ => Array.prototype.slice.call(arguments))
          if typeof! input is \Object and input.$$typeof?
-           #console.log \synbol, input
-           return dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
+           return dom.apply(@, [null] ++ items)
          if [\Object, \Undefined, \Null].index-of(typeof! input) > -1
            return ->
-              dom.apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
-         dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
+              items = 
+                | typeof! arguments.0 is \Array => arguments.1
+                | _ => Array.prototype.slice.call(arguments))
+              dom.apply(@, [input ? null] ++ items)
+         dom.apply(@, [null] ++ items)
 
 create = (component) ->
     if typeof component is \object
