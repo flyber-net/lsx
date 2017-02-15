@@ -21,15 +21,11 @@ exports.type = do ->
 tag = (input) ->
     if [\Object, \Undefined, \Null].index-of(typeof! input)
        return ->
-          [input ? null] ++ Array.prototype.slice.call(arguments)
-    [null] ++ Array.prototype.slice.call(arguments)
+          React.DOM[name].apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
+    React.DOM[name].apply(@, [null] ++ Array.prototype.slice.call(arguments))
     
 install = (name)->
-    exports[name] = (input)->
-       if typeof! input is \Object 
-         return ->
-            React.DOM[name].apply @, tag.apply(tag, [input] ++ Array.prototype.slice.call(arguments))             
-       React.DOM[name].apply @, tag.apply(tag, Array.prototype.slice.call(arguments))
+    exports[name] = tag
 
 html = [
     'a' 'abbr' 'address' 'area' 'article' 'aside' 'audio' 'b' 'base' 'bdi' 'bdo' 'big' 'blockquote' 'body' 'br'
