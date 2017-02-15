@@ -44,13 +44,13 @@ npm i lsx-pug
 1 import plugin 'lsx-pug'.
 
 ```Livescript
-{ createClass, div, a, p } = require 'lsx-pug'
+{ create-class, div, a, p } = require 'lsx-pug'
 ```
 
 2 create class and bind. (example:Main)
 
 ```Livescript
-Main = createClass do
+Main = create-class do
     render : ->
         div() do
             p() 'hello'
@@ -116,7 +116,7 @@ use component and set prop-types
 ```Livescript
 { createClass, type, div} = require 'lsx-pug'
 
-test-component = createClass do
+test-component = create-class do
 
     prop-types =
         test-class : type.string
