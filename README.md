@@ -87,9 +87,9 @@ Component
 ```Livescript
 
 
-div \hello,world
+div \hello
 
-# <div>hello,world</div>
+# <div>hello</div>
 ```
 
 Null Contents Component
@@ -106,20 +106,20 @@ Nested Component
 ```Livescript
 div do 
     p ""
-    p \hello,world
+    p \hello
 
 # <div>
 #     <p />
-#     <p>hello,world</p>
+#     <p>hello</p>
 # </div>
 ```
 
 Set Properties and Style, etc..
 
 ```Livescript
-div(test-prop : "test",
+div(test-prop : \test ,
     on-click : @test-func ,
-    style : {height : 200  width : 200} ) \hello,world
+    style : {height : 200  width : 200} ) \hello
 
 # <div test-prop = "test"
 #      onClick = {this.testFunc}
@@ -127,7 +127,7 @@ div(test-prop : "test",
 #          height:200
 #          width:200
 #      }>
-#     hello,world
+#     hello
 # <div>
 ```
 Use Component and Set Prop-Types
@@ -150,7 +150,7 @@ main = create do
 
     render: ->
         div do
-          test-component(test-class: \test ) \hello,world
+          test-component(test-class: \test ) \hello
 ```
 
 Use If Condition
@@ -163,10 +163,10 @@ main = create do
             div [div 1, div 2]
             div do
               if 5 is 5  
-                 div "Conditional Div"
+                 div "conditional div"
               else 
-                 div "Never Happended"
-              div "Next Div"
+                 div "never happended"
+              div "next div"
 
 ```
 
