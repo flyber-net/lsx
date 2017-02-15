@@ -41,13 +41,13 @@ npm i lsx-pug
 
 ### Usage
 
-1 import plugin 'lsx-pug'.
+1 Import plugin 'lsx-pug'.
 
 ```Livescript
 { create-class, div, a, p } = require \lsx-pug
 ```
 
-2 create class and bind. (example:Main)
+2 Create class and bind. (example:Main)
 
 ```Livescript
 main = create-class do
@@ -57,7 +57,7 @@ main = create-class do
             a(href:"http://google.com") \world
 ```
 
-3 render.
+3 Render.
 
 ```Livescript
 { render } = require \react-dom
@@ -68,7 +68,7 @@ render do
 
 ### Function
 
-component
+Component
 
 ```Livescript
 
@@ -78,7 +78,7 @@ div() 'hello,world'
 # <div>hello,world</div>
 ```
 
-null contents component
+Null Contents Component
 
 ```Livescript
 
@@ -87,7 +87,7 @@ div()
 # <div />
 ```
 
-nest component
+Nested Component
 
 ```Livescript
 div() do 
@@ -100,7 +100,7 @@ div() do
 # </div>
 ```
 
-set props and style, etc..
+Set Properties and Style, etc..
 
 ```Livescript
 div (test-prop : 'test'
@@ -116,7 +116,7 @@ div (test-prop : 'test'
 #     hello,world
 # <div>
 ```
-use component and set prop-types
+Use Component and Set Prop-Types
 
 ```Livescript
 { create-class, type, div} = require 'lsx-pug'

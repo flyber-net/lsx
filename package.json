@@ -1,23 +1,22 @@
 {
-  "name" : "lsx",
-  "version" : "0.1.0",
-  "description" : "React plugin for LiveScript",
-  "author" : "sakana",
-  "main" : "index.js",
-  "scripts" : {
+  "scripts": {},
+  "uperversion": "0.1",
+  "subversion": 3,
+  "main": "index.js",
+  "author": "askucher",
+  "devDependencies": {
+    "react-dom": "^0.14.x"
   },
-  "homepage" : "https://github.com/sakanabiscuit",
-  "license" : "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "git://github.com/sakanabiscuit/lsx.git"
+  "dependencies": {
+    "react": "^0.14.x"
   },
-  "dependencies" : {
-    "react" : "^0.14.x"
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/flyber-net/lsx-pug.git"
   },
-  "devDependencies" : {
-    "livescript-loader" : "latest",
-    "webpack" : "latest",
-    "react-dom" : "^0.14.x"
-  }
+  "license": "MIT",
+  "homepage": "https://github.com/flyber-net",
+  "name": "lsx-pug",
+  "version": "0.1.3",
+  "description": "React plugin for LiveScript"
 }
