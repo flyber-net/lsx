@@ -22,7 +22,7 @@
           items = (function(args$){
             switch (false) {
             case toString$.call(args$[0]).slice(8, -1) !== 'Array':
-              return args$[1];
+              return args$[0];
             default:
               return Array.prototype.slice.call(args$);
             }

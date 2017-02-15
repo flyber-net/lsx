@@ -10,7 +10,7 @@ build = (dom)->
          if [\Object, \Undefined, \Null].index-of(typeof! input) > -1
            return ->
               items = 
-                | typeof! arguments.0 is \Array => arguments.1
+                | typeof! arguments.0 is \Array => arguments.0
                 | _ => Array.prototype.slice.call(arguments)
               dom.apply(@, [input ? null] ++ items)
          dom.apply(@, [null] ++ items)
