@@ -2,7 +2,7 @@ React = require \react
 
 create-tag = (dom)->
      (input) ->
-        if [\Object, \Undefined, \Null].index-of(typeof! input)
+        if [\Object, \Undefined, \Null].index-of(typeof! input) > -1
            return ->
               React.DOM[name].apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
         dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))

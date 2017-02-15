@@ -4,7 +4,7 @@
   React = require('react');
   createTag = function(dom){
     return function(input){
-      if (['Object', 'Undefined', 'Null'].indexOf(toString$.call(input).slice(8, -1))) {
+      if (['Object', 'Undefined', 'Null'].indexOf(toString$.call(input).slice(8, -1)) > -1) {
         return function(){
           return React.DOM[name].apply(this, [input != null ? input : null].concat(Array.prototype.slice.call(arguments)));
         };
