@@ -23,17 +23,7 @@ window.onload = ->
         'app' |> document.query-selector
 ```
 
-Object Oriented Programming
 
-```Livescript
-{ create, Component, div, a, p } = require \lsx-pug
-
-main = create class Main extends Component
-    render : ->
-        div do
-            a 'hello'
-            p 'world'
-```
 
 ---------
 
@@ -74,7 +64,21 @@ render do
 
 ---------
 
+
+
 ### Function
+
+Object Oriented Programming
+
+```Livescript
+{ create, Component, div, a, p } = require \lsx-pug
+
+main = create class Main extends Component
+    render : ->
+        div do
+            a 'hello'
+            p 'world'
+```
 
 Component
 
