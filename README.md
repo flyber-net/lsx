@@ -3,52 +3,51 @@
 ! This plugin is written LiveScript, you need to install LiveScript. LiveScript is a language which compiles to JavaScript.
 ```Livescript
     { render } = require 'react-dom'
-    { createClass, div, a, p } = require 'lsx'
+    { createClass, div, a, p } = require 'lsx-pug'
 
     main = createClass do
 
         render : ->
-            div [],
-                a [] 'hello'
-                p [] 'world'
+            div() do
+                a() 'hello'
+                p() 'world'
 
     window.onload = ->
 
-        'app' |> document.createElement
-              |> document.body.appendChild
+        'app' |> document.createElement |> document.body.appendChild
         render do
             main []
             'app' |> document.querySelector
 ```
 Object Oriented Programming
 ```Livescript
-    { createClass, Component, div, a, p } = require 'lsx'
+    { createClass, Component, div, a, p } = require 'lsx-pug'
 
     main = createClass class Main extends Component
 
         render : ->
-            div [],
-                a [] 'hello'
-                p [] 'world'
+            div() do
+                a() 'hello'
+                p() 'world'
 ```
 ### Installation
 
 Have Node.js installed.
 ```Bash
-    npm i lsx
+    npm i lsx-pug
 ```
 ### Usage
 
 1 import plugin 'lsx'.
 ```Livescript
-    { createClass, div, a, p } = require 'lsx'
+    { createClass, div, a, p } = require 'lsx-pug'
 ```
 2 create class and bind. (example:Main)
 ```Livescript
     Main = createClass do
 
         render : ->
-            div [],
+            div() do
                 p [] 'hello'
                 a [] 'world'
 ```
@@ -63,21 +62,21 @@ Have Node.js installed.
 ```Livescript
 component
 
-    div [] 'hello,world'
+    div() 'hello,world'
 
     # <div>hello,world</div>
 ```
 null contents component
 ```Livescript
-    div []
+    div()
 
     # <div />
 ```
 nest component
 ```Livescript
-    div [],
-        p []
-        p [] 'hello,world'
+    div() do 
+        p()
+        p() 'hello,world'
 
     # <div>
     #     <p />
@@ -86,11 +85,9 @@ nest component
 ```
 set props and style, etc..
 ```Livescript
-    div [ test-prop : 'test'
-        , onClick : @test-func
-        , style :
-          height : 200
-          width : 200 ] 'hello,world'
+    div (test-prop : 'test'
+         on-click : @test-func 
+         style : {height : 200  width : 200} ) 'hello,world'
 
     # <div test-prop = "test"
     #      onClick = {this.testFunc}
@@ -103,7 +100,7 @@ set props and style, etc..
 ```
 use component and set prop-types
 ```Livescript
-    { createClass, type, div} = require 'lsx'
+    { createClass, type, div} = require 'lsx-pug'
 
     test-component = createClass do
 
@@ -119,25 +116,6 @@ use component and set prop-types
     Main = createClass do
 
         render: ->
-            div [],
-                test-component [ test-class: 'test' ] 'hello,world'
-```
-use plain component
-```Livescript
-    plain-component = React.createClass do
-        render : ->
-            React.DOM.div null, 'hello,world'
-
-    component = createClass plain-component
-
-    ReactDOM.render do
-        component []
-        'app' |> document.querySelector
-```
-use with React.createClass
-```Livescript
-    plain-component = React.createClass do
-        test-component []
-        render : ->
-            div [] 'hello,world'
+            div () do
+              test-component( test-class: 'test') 'hello,world'
 ```
