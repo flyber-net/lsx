@@ -213,3 +213,5 @@ div()
 
 
 ```
+
+![Livescript + React](https://cdn-images-1.medium.com/max/800/1*_XYeYO5inHgtK7TE-GJliA.png)
