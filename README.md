@@ -17,7 +17,7 @@ main = create do
 window.onload = ->
     'app' |> document.create-element |> document.body.append-child
     render do
-        main()
+        main ""
         'app' |> document.query-selector
 ```
 
@@ -63,7 +63,7 @@ main = create do
 ```Livescript
 { render } = require \react-dom
 render do
-    main()
+    main ""
     'app' |> document.query-selector
 ```
 
@@ -83,7 +83,7 @@ Null Contents Component
 
 ```Livescript
 
-div()
+div ""
 
 # <div />
 ```
