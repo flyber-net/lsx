@@ -34,6 +34,9 @@ main = create class Main extends Component
             a 'hello'
             p 'world'
 ```
+
+---------
+
 ### Installation
 
 Have Node.js installed.
@@ -68,6 +71,8 @@ render do
     main ""
     'app' |> document.query-selector
 ```
+
+---------
 
 ### Function
 
