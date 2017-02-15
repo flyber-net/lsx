@@ -4,15 +4,33 @@
   React = require('react');
   build = function(dom){
     return function(input){
+      var items;
+      items = (function(args$){
+        switch (false) {
+        case toString$.call(args$[1]).slice(8, -1) !== 'Array':
+          return args$[1];
+        default:
+          return Array.prototype.slice.call(args$);
+        }
+      }(arguments));
       if (toString$.call(input).slice(8, -1) === 'Object' && input.$$typeof != null) {
-        return dom.apply(this, [null].concat(Array.prototype.slice.call(arguments)));
+        return dom.apply(this, [null].concat(items));
       }
       if (['Object', 'Undefined', 'Null'].indexOf(toString$.call(input).slice(8, -1)) > -1) {
         return function(){
-          return dom.apply(this, [input != null ? input : null].concat(Array.prototype.slice.call(arguments)));
+          var items;
+          items = (function(args$){
+            switch (false) {
+            case toString$.call(args$[0]).slice(8, -1) !== 'Array':
+              return args$[1];
+            default:
+              return Array.prototype.slice.call(args$);
+            }
+          }(arguments));
+          return dom.apply(this, [input != null ? input : null].concat(items));
         };
       }
-      return dom.apply(this, [null].concat(Array.prototype.slice.call(arguments)));
+      return dom.apply(this, [null].concat(items));
     };
   };
   create = function(component){
