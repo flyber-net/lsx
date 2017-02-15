@@ -139,3 +139,33 @@ main = create do
         div do
           test-component(test-class: 'test') 'hello,world'
 ```
+
+Use If Condition
+
+```Livescript
+
+main = create do
+    render : ->
+        div(title: "Title") do 
+            div [div 1, div 2]
+            div do
+              if 5 is 5  
+                 div "Conditional Div"
+              else 
+                 div "Never Happended"
+              div "Next Div"
+
+```
+
+Use Loops 
+
+```Livescript 
+
+main = create do
+
+    render: ->
+        div do
+          for i in [1 to 2o]
+            div i
+
+```
