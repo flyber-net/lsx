@@ -24,9 +24,9 @@ window.onload = ->
 Object Oriented Programming
 
 ```Livescript
-{ create-class, Component, div, a, p } = require \lsx-pug
+{ create, Component, div, a, p } = require \lsx-pug
 
-main = create-class class Main extends Component
+main = create class Main extends Component
     render : ->
         div do
             a 'hello'
@@ -133,7 +133,7 @@ test-component = create do
     render : ->
         div(class-name: @props.test-class) @props.children
 
-main = create-class do
+main = create do
 
     render: ->
         div do
