@@ -17,10 +17,10 @@ main = create do
           p \world
 
 window.onload = ->
-    'app' |> document.create-element |> document.body.append-child
+    \app |> document.create-element |> document.body.append-child
     render do
         main ""
-        'app' |> document.query-selector
+        \app |> document.query-selector
 ```
 
 
@@ -59,7 +59,7 @@ main = create do
 { render } = require \react-dom
 render do
     main ""
-    'app' |> document.query-selector
+    \app |> document.query-selector
 ```
 
 ---------
@@ -78,8 +78,8 @@ Object Oriented Programming
 main = create class Main extends Component
     render : ->
         div do
-            a 'hello'
-            p 'world'
+            a \hello
+            p \world
 ```
 
 Component
@@ -87,7 +87,7 @@ Component
 ```Livescript
 
 
-div 'hello,world'
+div \hello,world
 
 # <div>hello,world</div>
 ```
@@ -105,8 +105,8 @@ Nested Component
 
 ```Livescript
 div do 
-    p
-    p 'hello,world'
+    p ""
+    p \hello,world
 
 # <div>
 #     <p />
@@ -117,9 +117,9 @@ div do
 Set Properties and Style, etc..
 
 ```Livescript
-div(test-prop : 'test',
+div(test-prop : "test",
     on-click : @test-func ,
-    style : {height : 200  width : 200} ) 'hello,world'
+    style : {height : 200  width : 200} ) \hello,world
 
 # <div test-prop = "test"
 #      onClick = {this.testFunc}
@@ -133,7 +133,7 @@ div(test-prop : 'test',
 Use Component and Set Prop-Types
 
 ```Livescript
-{ create, type, div} = require 'lsx-pug'
+{ create, type, div} = require \lsx-pug
 
 test-component = create do
 
@@ -141,7 +141,7 @@ test-component = create do
         test-class : type.string
 
     get-default-props = ->
-        test-class : 'default'
+        test-class : \default
 
     render : ->
         div(class-name: @props.test-class) @props.children
@@ -150,7 +150,7 @@ main = create do
 
     render: ->
         div do
-          test-component(test-class: 'test') 'hello,world'
+          test-component(test-class: \test ) \hello,world
 ```
 
 Use If Condition
@@ -159,7 +159,7 @@ Use If Condition
 
 main = create do
     render : ->
-        div(title: "Title") do 
+        div(title: \title ) do 
             div [div 1, div 2]
             div do
               if 5 is 5  
