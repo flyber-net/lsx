@@ -1,5 +1,12 @@
 React = require \react
 
+create-tag = (dom)->
+     (input) ->
+        if [\Object, \Undefined, \Null].index-of(typeof! input)
+           return ->
+              React.DOM[name].apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
+        dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
+
 create = (component) ->
     if typeof component is \object
         component = React.create-class component
@@ -18,12 +25,7 @@ exports.type = do ->
         types[prop] = React.PropTypes[prop]
     types
 
-create-tag = (dom)->
-     (input) ->
-        if [\Object, \Undefined, \Null].index-of(typeof! input)
-           return ->
-              React.DOM[name].apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
-        dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
+
     
 install = (name)->
     exports[name] = create-tag React.DOM[name]
