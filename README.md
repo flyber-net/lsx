@@ -4,8 +4,8 @@ This is Pug/Jade like syntax library for React DOM written on LiveScript
 
 ! This plugin is written LiveScript, you need to install LiveScript. LiveScript is a language which compiles to JavaScript.
 ```Livescript
-{ render } = require 'react-dom'
-{ create-class, div, a, p } = require 'lsx-pug'
+{ render } = require \react-dom
+{ create-class, div, a, p } = require \lsx-pug
 
 main = create-class do
     render : ->
@@ -14,16 +14,16 @@ main = create-class do
             p() 'world'
 
 window.onload = ->
-    'app' |> document.createElement |> document.body.appendChild
+    'app' |> document.create-element |> document.body.append-child
     render do
         main()
-        'app' |> document.querySelector
+        'app' |> document.query-selector
 ```
 
 Object Oriented Programming
 
 ```Livescript
-{ create-class, Component, div, a, p } = require 'lsx-pug'
+{ create-class, Component, div, a, p } = require \lsx-pug
 
 main = create-class class Main extends Component
     render : ->
@@ -44,7 +44,7 @@ npm i lsx-pug
 1 import plugin 'lsx-pug'.
 
 ```Livescript
-{ create-class, div, a, p } = require 'lsx-pug'
+{ create-class, div, a, p } = require \lsx-pug
 ```
 
 2 create class and bind. (example:Main)
@@ -53,14 +53,14 @@ npm i lsx-pug
 Main = create-class do
     render : ->
         div() do
-            p() 'hello'
-            a() 'world'
+            p() \hello
+            a(href:"http://google.com.ua") \world
 ```
 
 3 render.
 
 ```Livescript
-{ render } = require 'react-dom'
+{ render } = require \react-dom
 render do
     Main()
     'app' |> document.querySelector
