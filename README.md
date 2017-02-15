@@ -111,11 +111,11 @@ use component and set prop-types
             test-class : 'default'
 
         render : ->
-            div [ class-name: @props.test-class ] @props.children
+            div(class-name: @props.test-class) @props.children
 
     Main = createClass do
 
         render: ->
-            div () do
+            div() do
               test-component( test-class: 'test') 'hello,world'
 ```
