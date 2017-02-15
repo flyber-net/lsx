@@ -1,7 +1,23 @@
 React = require \react
 
+make-element = (tagname, props, func)->
+   obj.$$typeof = "Symbol(react.element)"
+   obj._owner = null
+   obj._self = null
+   obj._source = null 
+   obj._store = 
+      validated: no 
+   obj.props = 
+      children: 0
+   if typeof! input is \Object
+         obj.props <<< input
+   obj.key = null
+   obj.ref = null
+   obj.type = tagname
+   return obj    
+
 build = (tagname, dom)->
-     (input)->
+     g = (input)->
          items = 
               | typeof! arguments.1 is \Array => arguments.1
               | _ => Array.prototype.slice.call(arguments)
@@ -13,22 +29,11 @@ build = (tagname, dom)->
                 | typeof! arguments.0 is \Array => arguments.0
                 | _ => Array.prototype.slice.call(arguments)
               dom.apply(@, [input ? null] ++ items)
-           obj.$$typeof = "Symbol(react.element)"
-           obj._owner = null
-           obj._self = null
-           obj._source = null 
-           obj._store = 
-              validated: no 
-           obj.props = 
-              children: 0
-           if typeof! input is \Object
-                 obj.props <<< input
-           obj.key = null
-           obj.ref = null
-           obj.type = tagname
-           return obj   
+           #make-element tagname, input, obj
+           return obj
          dom.apply(@, [null] ++ items)
-
+     #make-element tagname, {}, g
+     g
 create = (component) ->
     if typeof component is \object
         component = React.create-class component
