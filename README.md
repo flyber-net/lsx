@@ -9,7 +9,7 @@ This is Pug/Jade like syntax library for React DOM written on LiveScript
 
 main = create-class do
     render : ->
-        div() do
+        div(title: "Title Attribute :)") do
             a() 'hello'
             p() 'world'
 
