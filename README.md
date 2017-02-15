@@ -51,7 +51,7 @@ npm i lsx-pug
 2 create class and bind. (example:Main)
 
 ```Livescript
-Main = create-class do
+main = create-class do
     render : ->
         div() do
             p() \hello
@@ -63,14 +63,16 @@ Main = create-class do
 ```Livescript
 { render } = require \react-dom
 render do
-    Main()
+    main()
     'app' |> document.querySelector
 ```
 
 ### Function
 
-```Livescript
 component
+
+```Livescript
+
 
 div() 'hello,world'
 
@@ -80,12 +82,14 @@ div() 'hello,world'
 null contents component
 
 ```Livescript
+
 div()
 
 # <div />
 ```
 
 nest component
+
 ```Livescript
 div() do 
     p()
@@ -114,6 +118,7 @@ div (test-prop : 'test'
 # <div>
 ```
 use component and set prop-types
+
 ```Livescript
 { createClass, type, div} = require 'lsx-pug'
 
