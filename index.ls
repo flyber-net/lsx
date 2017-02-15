@@ -3,7 +3,7 @@ React = require \react
 create = (component) ->
     if typeof component is \object
         component = React.create-class component
-    -> React.create-factory component .apply @, process arguments
+    -> React.create-factory component .apply @, tag arguments
 
 exports.React = React
 exports.Component = React.Component

@@ -7,7 +7,7 @@
       component = React.createClass(component);
     }
     return function(){
-      return React.createFactory(component).apply(this, process(arguments));
+      return React.createFactory(component).apply(this, tag(arguments));
     };
   };
   exports.React = React;
