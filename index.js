@@ -6,9 +6,7 @@
     if (typeof component === 'object') {
       component = React.createClass(component);
     }
-    return function(){
-      return createTag(React.createFactory(component)).apply(this, arguments);
-    };
+    return createTag(React.createFactory(component));
   };
   exports.React = React;
   exports.Component = React.Component;
