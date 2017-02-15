@@ -25,8 +25,11 @@ tag = (input) ->
     [null] ++ Array.prototype.slice.call(arguments)
     
 install = (name)->
-    exports[name] = ->
-       React.DOM[name].apply @, tag(arguments)
+    exports[name] = (input)->
+       if typeof! input is \Object 
+         return ->
+            React.DOM[name].apply @, tag.apply(tag, [input] ++ Array.prototype.slice.call(arguments))             
+       React.DOM[name].apply @, tag.apply(tag, Array.prototype.slice.call(arguments))
 
 html = [
     'a' 'abbr' 'address' 'area' 'article' 'aside' 'audio' 'b' 'base' 'bdi' 'bdo' 'big' 'blockquote' 'body' 'br'
