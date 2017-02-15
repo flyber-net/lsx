@@ -1,16 +1,16 @@
 React = require \react
 
-create-tag = (dom)->
+build = (dom)->
      (input) ->
         if [\Object, \Undefined, \Null].index-of(typeof! input) > -1
            return ->
-              React.DOM[name].apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
+              dom.apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
         dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
 
 create = (component) ->
     if typeof component is \object
         component = React.create-class component
-    create-tag(React.create-factory component)
+    build(React.create-factory component)
 
 exports.React = React
 exports.Component = React.Component
@@ -28,7 +28,7 @@ exports.type = do ->
 
     
 install = (name)->
-    exports[name] = create-tag React.DOM[name]
+    exports[name] = build React.DOM[name]
 
 html = [
     'a' 'abbr' 'address' 'area' 'article' 'aside' 'audio' 'b' 'base' 'bdi' 'bdo' 'big' 'blockquote' 'body' 'br'
