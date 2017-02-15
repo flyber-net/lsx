@@ -5,13 +5,14 @@ This is Pug/Jade like syntax library for React DOM written on LiveScript
 
 ```Livescript
 { render } = require \react-dom
-{ create-class, div, a, p } = require \lsx-pug
+{ create, div, a, p } = require \lsx-pug
 
-main = create-class do
+main = create do
     render : ->
-        div() do
-            a(href: "http://google.com") 'hello'
-            p() 'world'
+        div do
+          a(href: \http://google.com 
+            target: \blank) \hello
+          p \world
 
 window.onload = ->
     'app' |> document.create-element |> document.body.append-child
@@ -27,9 +28,9 @@ Object Oriented Programming
 
 main = create-class class Main extends Component
     render : ->
-        div() do
-            a() 'hello'
-            p() 'world'
+        div do
+            a 'hello'
+            p 'world'
 ```
 ### Installation
 
@@ -44,17 +45,17 @@ npm i lsx-pug
 1 Import plugin 'lsx-pug'.
 
 ```Livescript
-{ create-class, div, a, p } = require \lsx-pug
+{ create, div, a, p } = require \lsx-pug
 ```
 
 2 Create class and bind. (example:Main)
 
 ```Livescript
-main = create-class do
+main = create do
     render : ->
-        div() do
-            p() \hello
-            a(href:"http://google.com") \world
+        div do
+            p \hello
+            a(href: \http://google.com ) \world
 ```
 
 3 Render.
@@ -73,7 +74,7 @@ Component
 ```Livescript
 
 
-div() 'hello,world'
+div 'hello,world'
 
 # <div>hello,world</div>
 ```
@@ -90,9 +91,9 @@ div()
 Nested Component
 
 ```Livescript
-div() do 
-    p()
-    p() 'hello,world'
+div do 
+    p
+    p 'hello,world'
 
 # <div>
 #     <p />
@@ -119,9 +120,9 @@ div (test-prop : 'test'
 Use Component and Set Prop-Types
 
 ```Livescript
-{ create-class, type, div} = require 'lsx-pug'
+{ create, type, div} = require 'lsx-pug'
 
-test-component = create-class do
+test-component = create do
 
     prop-types =
         test-class : type.string
@@ -135,6 +136,6 @@ test-component = create-class do
 main = create-class do
 
     render: ->
-        div() do
-          test-component( test-class: 'test') 'hello,world'
+        div do
+          test-component(test-class: 'test') 'hello,world'
 ```

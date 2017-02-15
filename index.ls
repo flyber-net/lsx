@@ -1,33 +1,13 @@
 React = require \react
 
-#process = ->
-#    arg = arguments.0
-#    a = []
-#    if arg.1 is not undefined
-#        a = Array.prototype.slice.call arg, 1
-#    else
-#        a = Array.prototype.slice.call arg, 2
-#        a.shift arg.1
-#    # arg[0][0] is Attributes
-#    if arg[0][0] is not undefined
-#         a.unshift arg[0][0]
-#    else
-#        a.unshift null
-#    return a
-
-create-class = (component) ->
+create = (component) ->
     if typeof component is \object
         component = React.create-class component
     -> React.create-factory component .apply @, process arguments
 
 exports.React = React
-
 exports.Component = React.Component
-
-exports.io = create-class
-
-exports.create-class = create-class
-
+exports.create = create
 exports.type = do ->
     types = {}
     props = [
