@@ -3,7 +3,7 @@
 ![Logo](https://content.screencast.com/users/a.stegno/folders/Jing/media/1ddfab27-6d01-41c9-965d-30cef10675b6/00000147.png)
 This is Pug/Jade like syntax library for React DOM written on LiveScript
 
-
+### Example
 
 ```Livescript
 { render } = require \react-dom
@@ -63,10 +63,12 @@ render do
 ```
 
 ---------
+---------
+---------
 
 
 
-### Function
+### More Examples
 
 Object Oriented Programming
 
