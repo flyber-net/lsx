@@ -63,7 +63,7 @@ main = create-class do
 { render } = require \react-dom
 render do
     main()
-    'app' |> document.querySelector
+    'app' |> document.query-selector
 ```
 
 ### Function
