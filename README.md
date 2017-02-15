@@ -104,9 +104,9 @@ div do
 Set Properties and Style, etc..
 
 ```Livescript
-div (test-prop : 'test'
-     on-click : @test-func 
-     style : {height : 200  width : 200} ) 'hello,world'
+div(test-prop : 'test',
+    on-click : @test-func ,
+    style : {height : 200  width : 200} ) 'hello,world'
 
 # <div test-prop = "test"
 #      onClick = {this.testFunc}
