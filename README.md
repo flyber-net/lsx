@@ -3,7 +3,6 @@
 ![Logo](https://content.screencast.com/users/a.stegno/folders/Jing/media/1ddfab27-6d01-41c9-965d-30cef10675b6/00000147.png)
 This is Pug/Jade like syntax library for React DOM written on LiveScript
 
-! This plugin is written LiveScript, you need to install LiveScript. LiveScript is a language which compiles to JavaScript.
 ```Livescript
 { render } = require \react-dom
 { create-class, div, a, p } = require \lsx-pug
