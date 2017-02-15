@@ -4,7 +4,7 @@
   React = require('react');
   build = function(dom){
     return function(input){
-      if (toString$.call(input).slice(8, -1) === 'Object' && input.$$typeof === "Symbol(react.element)") {
+      if (toString$.call(input).slice(8, -1) === 'Object' && input.$$typeof != null) {
         return dom.apply(this, [null].concat(Array.prototype.slice.call(arguments)));
       }
       if (['Object', 'Undefined', 'Null'].indexOf(toString$.call(input).slice(8, -1)) > -1) {
