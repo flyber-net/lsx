@@ -3,6 +3,8 @@
 ![Logo](https://content.screencast.com/users/a.stegno/folders/Jing/media/1ddfab27-6d01-41c9-965d-30cef10675b6/00000147.png)
 This is Pug/Jade like syntax library for React DOM written on LiveScript
 
+
+
 ```Livescript
 { render } = require \react-dom
 { create, div, a, p } = require \lsx-pug
@@ -167,5 +169,36 @@ main = create do
         div do
           for i in [1 to 5]
             div i
+
+```
+
+Limitations 
+
+```Livescript 
+
+#This syntax is not supported
+ 
+div() 
+
+#
+
+div
+
+#At least You need to add empty string 
+
+div() "" 
+
+#or 
+
+div ""
+
+#
+#Perphaps, in next version, we are going to adjust React validations rules in order to make possible to write 
+#
+
+div 
+
+div()
+
 
 ```
