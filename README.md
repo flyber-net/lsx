@@ -1,5 +1,7 @@
 ### [lsx - LiveScript Extension](https://github.com/sakanabiscuit/lsx)
 
+This is Pug/Jade like syntax library for React DOM written on LiveScript
+
 ! This plugin is written LiveScript, you need to install LiveScript. LiveScript is a language which compiles to JavaScript.
 ```Livescript
     { render } = require 'react-dom'
@@ -38,11 +40,12 @@ Have Node.js installed.
 ```
 ### Usage
 
-1 import plugin 'lsx'.
+1 import plugin 'lsx-pug'.
 ```Livescript
     { createClass, div, a, p } = require 'lsx-pug'
 ```
 2 create class and bind. (example:Main)
+
 ```Livescript
     Main = createClass do
 
@@ -51,14 +54,18 @@ Have Node.js installed.
                 p [] 'hello'
                 a [] 'world'
 ```
+
 3 render.
+
 ```Livescript
     { render } = require 'react-dom'
     render do
         Main []
         'app' |> document.querySelector
+```
 
 ### Function
+
 ```Livescript
 component
 
@@ -66,12 +73,15 @@ component
 
     # <div>hello,world</div>
 ```
+
 null contents component
+
 ```Livescript
     div()
 
     # <div />
 ```
+
 nest component
 ```Livescript
     div() do 
@@ -83,7 +93,9 @@ nest component
     #     <p>hello,world</p>
     # </div>
 ```
+
 set props and style, etc..
+
 ```Livescript
     div (test-prop : 'test'
          on-click : @test-func 
