@@ -10,7 +10,7 @@ This is Pug/Jade like syntax library for React DOM written on LiveScript
 main = create-class do
     render : ->
         div() do
-            a(href: "http://google.com.ua") 'hello'
+            a(href: "http://google.com") 'hello'
             p() 'world'
 
 window.onload = ->
@@ -54,7 +54,7 @@ main = create-class do
     render : ->
         div() do
             p() \hello
-            a(href:"http://google.com.ua") \world
+            a(href:"http://google.com") \world
 ```
 
 3 render.
