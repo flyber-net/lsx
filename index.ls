@@ -26,7 +26,7 @@ tag = (input) ->
     
 install = (name)->
     exports[name] = ->
-       React.DOM[tag].apply @, tag arguments
+       React.DOM[name].apply @, tag arguments
 
 html = [
     'a' 'abbr' 'address' 'area' 'article' 'aside' 'audio' 'b' 'base' 'bdi' 'bdo' 'big' 'blockquote' 'body' 'br'
