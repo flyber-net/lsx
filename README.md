@@ -120,7 +120,7 @@ div (test-prop : 'test'
 use component and set prop-types
 
 ```Livescript
-{ createClass, type, div} = require 'lsx-pug'
+{ create-class, type, div} = require 'lsx-pug'
 
 test-component = create-class do
 
@@ -133,7 +133,7 @@ test-component = create-class do
     render : ->
         div(class-name: @props.test-class) @props.children
 
-Main = createClass do
+main = create-class do
 
     render: ->
         div() do
