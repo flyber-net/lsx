@@ -2,14 +2,14 @@ React = require \react
 
 build = (dom)->
      (input) ->
-         console.log \typeof, input?$$typeof
-         #if typeof! input is \Object and input.$$typeof is "Symbol(react.element)"
-         #  #console.log \synbol, input
-         #  return dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
+         #console.log \typeof, input?$$typeof
+         if typeof! input is \Object and input.$$typeof is "Symbol(react.element)"
+           #console.log \synbol, input
+           return dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
          if [\Object, \Undefined, \Null].index-of(typeof! input) > -1
            return ->
               dom.apply(@, [input ? null] ++ Array.prototype.slice.call(arguments))
-        dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
+         dom.apply(@, [null] ++ Array.prototype.slice.call(arguments))
 
 create = (component) ->
     if typeof component is \object
