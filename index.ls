@@ -1,24 +1,38 @@
 React = require \react
 
-build = (dom)->
+build = (tagname, dom)->
      (input)->
          items = 
               | typeof! arguments.1 is \Array => arguments.1
               | _ => Array.prototype.slice.call(arguments)
-         if typeof! input is \Object and input.$$typeof?
+         if input?$$typeof?
            return dom.apply(@, [null] ++ items)
          if [\Object, \Undefined, \Null].index-of(typeof! input) > -1
-           return ->
+           obj = ->
               items = 
                 | typeof! arguments.0 is \Array => arguments.0
                 | _ => Array.prototype.slice.call(arguments)
               dom.apply(@, [input ? null] ++ items)
+           obj.$$typeof = "Symbol(react.element)"
+           obj._owner = null
+           obj._self = null
+           obj._source = null 
+           obj._store = 
+               validated: no 
+           obj.props = 
+               children: 0
+           if typeof! input is \Object
+              obj.props <<< input
+           obj.key = null
+           obj.ref = null
+           obj.type = tagname
+           obj   
          dom.apply(@, [null] ++ items)
 
 create = (component) ->
     if typeof component is \object
         component = React.create-class component
-    build(React.create-factory component)
+    build("component", React.create-factory component)
 
 exports.React = React
 exports.Component = React.Component
@@ -36,7 +50,7 @@ exports.type = do ->
 
     
 install = (name)->
-    exports[name] = build React.DOM[name]
+    exports[name] = build name, React.DOM[name]
 
 html = [
     'a' 'abbr' 'address' 'area' 'article' 'aside' 'audio' 'b' 'base' 'bdi' 'bdo' 'big' 'blockquote' 'body' 'br'

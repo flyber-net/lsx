@@ -2,9 +2,9 @@
 (function(){
   var React, build, create, install, html, svg, toString$ = {}.toString;
   React = require('react');
-  build = function(dom){
+  build = function(tagname, dom){
     return function(input){
-      var items;
+      var items, obj;
       items = (function(args$){
         switch (false) {
         case toString$.call(args$[1]).slice(8, -1) !== 'Array':
@@ -13,11 +13,11 @@
           return Array.prototype.slice.call(args$);
         }
       }(arguments));
-      if (toString$.call(input).slice(8, -1) === 'Object' && input.$$typeof != null) {
+      if ((input != null ? input.$$typeof : void 8) != null) {
         return dom.apply(this, [null].concat(items));
       }
       if (['Object', 'Undefined', 'Null'].indexOf(toString$.call(input).slice(8, -1)) > -1) {
-        return function(){
+        obj = function(){
           var items;
           items = (function(args$){
             switch (false) {
@@ -29,6 +29,23 @@
           }(arguments));
           return dom.apply(this, [input != null ? input : null].concat(items));
         };
+        obj.$$typeof = "Symbol(react.element)";
+        obj._owner = null;
+        obj._self = null;
+        obj._source = null;
+        obj._store = {
+          validated: false
+        };
+        obj.props = {
+          children: 0
+        };
+        if (toString$.call(input).slice(8, -1) === 'Object') {
+          import$(obj.props, input);
+        }
+        obj.key = null;
+        obj.ref = null;
+        obj.type = tagname;
+        obj;
       }
       return dom.apply(this, [null].concat(items));
     };
@@ -37,7 +54,7 @@
     if (typeof component === 'object') {
       component = React.createClass(component);
     }
-    return build(React.createFactory(component));
+    return build("component", React.createFactory(component));
   };
   exports.React = React;
   exports.Component = React.Component;
@@ -51,8 +68,13 @@
     return types;
   }();
   install = function(name){
-    return exports[name] = build(React.DOM[name]);
+    return exports[name] = build(name, React.DOM[name]);
   };
   html = ['a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'big', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'menu', 'menuitem', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var$', 'video', 'wbr'].map(install);
   svg = ['circle', 'clipPath', 'defs', 'ellipse', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'svg', 'text', 'tspan'].map(install);
+  function import$(obj, src){
+    var own = {}.hasOwnProperty;
+    for (var key in src) if (own.call(src, key)) obj[key] = src[key];
+    return obj;
+  }
 }).call(this);
