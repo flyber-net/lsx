@@ -53,7 +53,23 @@ main = create do
             a(href: \http://google.com ) \world
 ```
 
-3 Render.
+3 Custom Element. (example:Main)
+
+```Livescript
+{ create, div, a, p, button } = require \lsx-pug
+
+CustomElement = (on-click: on-click)->
+    button(on-click: on-click)
+
+main = create do
+    render : ->
+        div do
+            CustomElement
+            a(href: \http://google.com ) \world
+```
+
+
+4 Render.
 
 ```Livescript
 { render } = require \react-dom
