@@ -73,22 +73,16 @@
     });
     return types;
   }();
-  exports.$ = curry$(function(tagname, props, func){
-    return install(tagname, props, func);
-  });
+  exports.$ = function(tag, v2, v3){
+    switch (false) {
+    case toString$.call(v2).slice(8, -1) !== 'Object':
+      return install(tag, v2, v3);
+    case toString$.call(v2).slice(8, -1) !== 'Function':
+      return install(tag, {}, v2);
+    default:
+      return install(tag, {}, function(){});
+    }
+  };
   html = ['a', 'abbr', 'address', 'area', 'article', 'aside', 'audio', 'b', 'base', 'bdi', 'bdo', 'big', 'blockquote', 'body', 'br', 'button', 'canvas', 'caption', 'cite', 'code', 'col', 'colgroup', 'data', 'datalist', 'dd', 'del', 'details', 'dfn', 'dialog', 'div', 'dl', 'dt', 'em', 'embed', 'fieldset', 'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'head', 'header', 'hgroup', 'hr', 'html', 'i', 'iframe', 'img', 'input', 'ins', 'kbd', 'keygen', 'label', 'legend', 'li', 'link', 'main', 'map', 'mark', 'menu', 'menuitem', 'meta', 'meter', 'nav', 'noscript', 'object', 'ol', 'optgroup', 'option', 'output', 'p', 'param', 'picture', 'pre', 'progress', 'q', 'rp', 'rt', 'ruby', 's', 'samp', 'script', 'section', 'select', 'small', 'source', 'span', 'strong', 'style', 'sub', 'summary', 'sup', 'table', 'tbody', 'td', 'textarea', 'tfoot', 'th', 'thead', 'time', 'title', 'tr', 'track', 'u', 'ul', 'var$', 'video', 'wbr'].map(install);
   svg = ['circle', 'clipPath', 'defs', 'ellipse', 'g', 'image', 'line', 'linearGradient', 'mask', 'path', 'pattern', 'polygon', 'polyline', 'radialGradient', 'rect', 'stop', 'svg', 'text', 'tspan'].map(install);
-  function curry$(f, bound){
-    var context,
-    _curry = function(args) {
-      return f.length > 1 ? function(){
-        var params = args ? args.concat() : [];
-        context = bound ? context || this : this;
-        return params.push.apply(params, arguments) <
-            f.length && arguments.length ?
-          _curry.call(context, params) : f.apply(context, params);
-      } : f;
-    };
-    return _curry();
-  }
 }).call(this);
