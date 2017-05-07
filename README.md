@@ -3,6 +3,14 @@
 ![Logo](https://content.screencast.com/users/a.stegno/folders/Jing/media/1ddfab27-6d01-41c9-965d-30cef10675b6/00000147.png)
 This is Pug/Jade like syntax library for React DOM written on LiveScript
 
+### Please support this project (Goal $ 6k)
+
+Wallet
+
+1. BTC 19Uf4EjwXb2j2FvNvmgY3u7NtM7BYLmrR7
+2. ETH 0x8d23C40C1703b99D0295b3277E4164cE3DAaF7b6
+3. LTC LZFqabuJnk7VavgyTyKe8S9qqGVodbDkRe
+
 ### Example
 
 ```Livescript
