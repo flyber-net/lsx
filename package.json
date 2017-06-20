@@ -1,4 +1,14 @@
 {
+  "name": "lsx-pug",
+  "version": "0.1.56",
+  "description": "React plugin for LiveScript",
+  "author": "askucher",
+  "main": "index.js",
+  "subversion": 56,
+  "uperversion": "0.1",
+  "scripts": {},
+  "homepage": "https://github.com/flyber-net",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/flyber-net/lsx-pug.git"
@@ -7,15 +17,5 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
   },
-  "devDependencies": {},
-  "main": "index.js",
-  "author": "askucher",
-  "description": "React plugin for LiveScript",
-  "version": "0.1.55",
-  "name": "lsx-pug",
-  "license": "MIT",
-  "homepage": "https://github.com/flyber-net",
-  "scripts": {},
-  "uperversion": "0.1",
-  "subversion": 55
+  "devDependencies": {}
 }

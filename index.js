@@ -61,9 +61,7 @@
   out$.bootstrap = bootstrap = function(document, obj){
     var main;
     main = create({
-      render: function(){
-        return obj;
-      }
+      render: toString$.call(obj).slice(8, -1) === 'Function' ? obj : obj
     });
     document.body.appendChild(
     document.createElement(
