@@ -52,7 +52,7 @@
       return dom.apply(this, [null].concat(items));
     };
   };
-  create = function(component){
+  out$.create = create = function(component){
     if (typeof component === 'object') {
       component = React.createClass(component);
     }
